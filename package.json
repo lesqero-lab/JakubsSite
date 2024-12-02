@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "run-p serve:parcel watch:eleventy",
-    "serve:parcel": "parcel serve src/index.html --public-url / --dist-dir dist",
+    "serve:parcel": "parcel serve src/index.html",
     "watch:eleventy": "npx @11ty/eleventy --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

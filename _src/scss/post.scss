@@ -1,0 +1,9 @@
+.thumbnail-row img {
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border 0.3s ease;
+  }
+
+  .thumbnail-row img.active {
+    border: 2px solid #f0965a; /* Highlight color for selected thumbnail */
+  }

@@ -11,6 +11,13 @@
     <div class="container py-4 px-3 mx-auto">
       <h1>Hello, Bootstrap and Parcel! and even live editing this works</h1>
       <button class="btn btn-primary">Primary button</button>
+      <a href="/src/en/index.html">English main page</a>
+      <a href="/src/hu/index.html">Hungarian main page</a>
+<ul>
+{%- for post in collections.post -%}
+<a href={{"/src" | append: post.url | append: "index.html" }}>{{ post.data.title }}</a>
+{%- endfor -%}
+</ul>
     </div>
   </body>
 </html>

@@ -1,0 +1,23 @@
+---
+title: Base Layout
+---
+<!DOCTYPE html>
+<html lang="{{ page.lang}}">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+        <link rel="stylesheet" href="/src/scss/styles.scss">
+    </head>
+    <body>
+
+            <!-- Main container -->
+            <div id="main-container" role="document">
+                <main role="main">
+                    {{ content   }}
+                </main>
+            </div>
+
+            <script type="module" src="/src/js/main.js"></script>
+    </body>
+</html>

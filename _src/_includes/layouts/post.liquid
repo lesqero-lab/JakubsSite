@@ -1,0 +1,72 @@
+---
+layout: layouts/base.liquid
+title: Default Home Title
+---
+    <link rel="stylesheet" href="/src/scss/post.scss">
+<title>{{ title}}</title>
+<div class="container mt-4 w-100" align="center">
+    <!-- Carousel -->
+    <div id="carouselExample" class="carousel slide w-100" data-bs-ride="carousel" style="max-width: 1000px">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src={{cover}} alt="Italian Trulli" class="img-fluid">
+        </div>
+        {% for image in images %}
+            <div class="carousel-item">
+                <img src="/src/img/posts/{{ postNum }}/Carousel/{{ image }}" alt="Image {{ forloop.index }}" class="img-fluid">
+              </div>
+
+        {% endfor %}
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <!-- Thumbnail Row -->
+    <div class="row mt-3 thumbnail-row">
+        <div class="col">
+            <img src={{cover}} class="img-fluid thumbnail active" data-bs-target="#carouselExample" data-bs-slide-to="0" alt="Thumbnail 1">
+        </div>
+        {% for image in images %}
+
+            <div class="col">
+                <img src="/src/img/posts/{{ postNum }}/Carousel/{{ image }}" class="img-fluid thumbnail" data-bs-target="#carouselExample" data-bs-slide-to="{{ forloop.index }}" alt="Thumbnail 2">
+              </div>
+        {% endfor %}
+    </div>
+  </div>
+
+
+    
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const carouselElement = document.querySelector('#carouselExample');
+      const thumbnails = document.querySelectorAll('.thumbnail');
+
+      // Update thumbnail active state on slide
+      carouselElement.addEventListener('slide.bs.carousel', (event) => {
+        thumbnails.forEach((thumbnail) => thumbnail.classList.remove('active'));
+        thumbnails[event.to].classList.add('active');
+      });
+
+      // Add click event to thumbnails
+      thumbnails.forEach((thumbnail) => {
+        thumbnail.addEventListener('click', () => {
+          thumbnails.forEach((thumb) => thumb.classList.remove('active'));
+          thumbnail.classList.add('active');
+        });
+      });
+    });
+  </script>
+<div class="container mt-4 p-2 w-100">
+    <h1><strong>{{title}}</strong></h1>
+    {{content}}
+</div>
+  
